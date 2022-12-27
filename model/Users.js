@@ -1,22 +1,39 @@
 const mongoose = require('mongoose');
 
 const UsersSchema = new mongoose.Schema({
-    userRole: {
+    role: {
         type: String,
-        enum: ['admin', 'customer'],
+        enum: ['admin', 'customer', 'vendor'],
         default: 'customer',
         required: true
     },
     userName: {
         type: String,
-        toLowerCase: true,
         minLength: 3,
+        maxLength: 20,
         required: true,
         trim: true
     },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+        trim: true,
+        tolowercase: true
+    },
+    password: {
+        type: String,
+        required: true,
+        minLength: 8
+    },
+    contact: {
+        type: String,
+        minLength: 10,
+        maxLength: 10
+    },
     gender: {
         type: String,
-        trim: true
+        enum: ['Male', 'Female']
     },
     createdDate: {
         type: Date,

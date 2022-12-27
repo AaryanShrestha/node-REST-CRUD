@@ -9,14 +9,15 @@ const ProductsSchema = new mongoose.Schema({
         ref: 'Users',
         required: true
     },
-    reviewID: {
+    reviewID: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Reviews',
         required: true
-    },
+    }],
     productName: {
         type: String,
         required: true,
+        unique: true
     },
     productPrice: {
         type: Number,

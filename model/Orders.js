@@ -10,11 +10,11 @@ const OrdersSchema = new mongoose.Schema ({
         ref: 'Users',
         required: true
     },
-    productID: {
+    productID:[{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Products',
         required: true
-    },
+    }],
     reviewID: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Reviews',
